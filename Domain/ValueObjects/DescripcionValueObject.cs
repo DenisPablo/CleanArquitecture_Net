@@ -22,5 +22,8 @@ namespace BibliotecaDigital.Domain.ValueObjects
             }
             Valor = valor.Trim();
         }
+        
+        //Entity Framework
+        private DescripcionValueObject() { }
     }
 }

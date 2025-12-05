@@ -43,5 +43,15 @@ namespace BibliotecaDigital.Domain.Entities
 
         //Entity Framework
         private Subscripcion() { }
+
+        public void Desactivar()
+        {
+            this.Estado = Estados.Inactivo;
+        }
+
+        public void Activar()
+        {
+            this.Estado = Estados.Activo;
+        }
     }
 }
