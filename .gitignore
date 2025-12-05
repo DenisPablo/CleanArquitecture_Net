@@ -1,0 +1,71 @@
+# Visual Studio
+.vs/
+*.slnx.json
+*.vssscc
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+build/
+Build/
+
+# Packages
+packages/
+*.nupkg
+*.snupkg
+*.appx
+*.appxbundle
+*.vsix
+.suo
+*.user
+*.userprefs
+*.log
+*.bak
+*.cache
+[Tt]humbs.db
+[Ee]hthumbs.db
+*.sdf
+*.opensdf
+*.docstates
+*.mdf
+*.ldf
+*.env
+
+# Rider
+.idea/
+*.iml
+
+# Node.js
+node_modules/
+
+# misc
+.DS_Store
+.venv/
+Vagrantfile
+
+# EF Core migrations
+/Infrastructure/Migrations/*.Designer.cs
+/Infrastructure/Migrations/*.cs
+/Infrastructure/Migrations/*InitialCreate.cs
+/Infrastructure/Migrations/*InitialCreate.Designer.cs
+/Infrastructure/Infrastructure.csproj.EntityFrameworkCore.targets
+
+# Don't ignore the gitignore itself
+!.gitignore
+
+# Sensitive Configuration
+**/appsettings.Development.json
+**/appsettings.Local.json
+**/secrets.json
+
+# Tooling & Logs
+*.rsuser
+*.userosscache
+*.dmp
+
+# Testing
+TestResults/
+[Cc]overage/
