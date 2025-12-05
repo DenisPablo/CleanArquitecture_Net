@@ -40,5 +40,8 @@ namespace BibliotecaDigital.Domain.Entities
             this.FechaInicio = fechaInicio;
             this.FechaFin = fechaFin;
         }
+
+        //Entity Framework
+        private Subscripcion() { }
     }
 }

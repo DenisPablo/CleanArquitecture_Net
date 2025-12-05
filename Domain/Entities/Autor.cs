@@ -48,9 +48,8 @@ namespace BibliotecaDigital.Domain.Entities
             this.Libros = new List<Libro>(libros!);
         }
 
-        private Autor()
-        {
-        }
+        //Entity Framework
+        private Autor() { }
 
         public void Desactivar()
         {

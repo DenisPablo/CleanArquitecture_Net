@@ -42,6 +42,8 @@ namespace BibliotecaDigital.Domain.Entities
             this.Precio = precio;
             this.Subscripciones = [.. subscripciones!];
         }
+        //Entity Framework
+        private Plan() { }
 
         public void Desactivar()
         {

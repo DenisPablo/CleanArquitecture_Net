@@ -45,7 +45,7 @@ namespace BibliotecaDigital.Domain.Entities
             FechaPublicacion = fechaPublicacion;
             Autores = new List<Autor>(autores);
         }
-
+        //Entity Framework
         private Libro() { }
 
         public void Desactivar()

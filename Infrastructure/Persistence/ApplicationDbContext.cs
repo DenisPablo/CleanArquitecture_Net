@@ -23,6 +23,17 @@ namespace BibliotecaDigital.Infrastructure.Persistence
                 .HasMany(l => l.Autores)
                 .WithMany(a => a.Libros);
 
+            builder.Entity<Libro>().OwnsOne(l => l.Titulo);
+            builder.Entity<Libro>().OwnsOne(l => l.Descripcion);
+            
+            // 2. Configuración para la Entidad Autor
+            builder.Entity<Autor>().OwnsOne(a => a.Nombre);
+            builder.Entity<Autor>().OwnsOne(a => a.Apellido);
+
+            // 3. Configuración para la Entidad Plan
+            builder.Entity<Plan>().OwnsOne(p => p.Nombre);
+            builder.Entity<Plan>().OwnsOne(p => p.Descripcion);
+
             // Configuraciones personalizadas van aquí (ej. DeleteBehavior)
         }
     }
