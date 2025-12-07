@@ -5,9 +5,9 @@ namespace BibliotecaDigital.Domain.Interfaces;
 public interface IAutorRepository
 {
    Task<Autor?>CrearAutorAsync(Autor autor);
-   Task<Autor?>ObtenerAutorPorIdAsync(int id);
+   Task<Autor?>ObtenerAutorPorIdAsync(Guid id);
    Task<IEnumerable<Autor>>ObtenerTodosLosAutoresAsync();
 
    Task<Autor?>ActualizarAutorAsync(Autor autor);
-   Task<Autor?> EliminarAutorAsync(int id);   
+   Task<Autor?> EliminarAutorAsync(Guid id);   
 }

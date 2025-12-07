@@ -23,7 +23,7 @@ public class SubscripcionRepository(ApplicationDbContext context) : ISubscripcio
         }
     }
 
-    public async Task<Subscripcion?> ObtenerSubscripcionPorIdAsync(int id)
+    public async Task<Subscripcion?> ObtenerSubscripcionPorIdAsync(Guid id)
     {
         try
         {
@@ -61,7 +61,7 @@ public class SubscripcionRepository(ApplicationDbContext context) : ISubscripcio
         }
     }
 
-    public async Task EliminarSubscripcionAsync(int id)
+    public async Task EliminarSubscripcionAsync(Guid id)
     {
         try
         {

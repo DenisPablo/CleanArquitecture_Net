@@ -5,7 +5,7 @@ namespace BibliotecaDigital.Domain.Entities
 {
     public class Autor
     {
-        public int Id { get; private set; }
+        public Guid Id { get; private set; }
         public NombreApellidoTituloValueObject Nombre { get; private set; }
         public NombreApellidoTituloValueObject Apellido { get; private set; }
         public DateTime FechaNacimiento { get; private set; }

@@ -22,7 +22,7 @@ namespace BibliotecaDigital.Infrastructure.Persistence
             }
         }
        
-       public async Task<Libro?> ObtenerLibroPorIdAsync(int id)
+       public async Task<Libro?> ObtenerLibroPorIdAsync(Guid id)
        {
            try
            {
@@ -61,7 +61,7 @@ namespace BibliotecaDigital.Infrastructure.Persistence
            }
        }
 
-       public async Task EliminarLibroAsync(int id)
+       public async Task EliminarLibroAsync(Guid id)
        {
            try
            {

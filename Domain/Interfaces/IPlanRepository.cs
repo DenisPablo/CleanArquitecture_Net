@@ -5,8 +5,8 @@ namespace BibliotecaDigital.Domain.Interfaces;
 public interface IPlanRepository
 {
     Task<Plan?> CrearPlanAsync(Plan plan);
-    Task<Plan?> ObtenerPlanPorIdAsync(int id);
+    Task<Plan?> ObtenerPlanPorIdAsync(Guid id);
     Task<IEnumerable<Plan>> ObtenerTodosLosPlanesAsync();
     Task<Plan?> ActualizarPlanAsync(Plan plan);
-    Task<Plan?> EliminarPlanAsync(int id);   
+    Task<Plan?> EliminarPlanAsync(Guid id);   
 }

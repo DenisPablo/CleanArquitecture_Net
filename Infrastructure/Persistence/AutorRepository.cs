@@ -24,7 +24,7 @@ public class AutorRepository(ApplicationDbContext context) : IAutorRepository
         }
     }
 
-    public async Task<Autor?> ObtenerAutorPorIdAsync(int id)
+    public async Task<Autor?> ObtenerAutorPorIdAsync(Guid id)
     {
         try
         {
@@ -62,7 +62,7 @@ public class AutorRepository(ApplicationDbContext context) : IAutorRepository
         }
     }
 
-    public async Task<Autor?> EliminarAutorAsync(int id)
+    public async Task<Autor?> EliminarAutorAsync(Guid id)
     {
         try{
             var autor = await _context.Autores.FindAsync(id);

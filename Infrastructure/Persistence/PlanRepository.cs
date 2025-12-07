@@ -23,7 +23,7 @@ public class PlanRepository(ApplicationDbContext context) : IPlanRepository
         }
     }
 
-    public async Task<Plan?> ObtenerPlanPorIdAsync(int id)
+    public async Task<Plan?> ObtenerPlanPorIdAsync(Guid id)
     {
         try
         {
@@ -61,7 +61,7 @@ public class PlanRepository(ApplicationDbContext context) : IPlanRepository
         }
     }
 
-    public async Task<Plan?> EliminarPlanAsync(int id)
+    public async Task<Plan?> EliminarPlanAsync(Guid id)
     {
         try
         {

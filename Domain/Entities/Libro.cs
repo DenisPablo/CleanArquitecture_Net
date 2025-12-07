@@ -6,7 +6,7 @@ namespace BibliotecaDigital.Domain.Entities
 {
     public class Libro
     {
-        public int Id { get; private set; } 
+        public Guid Id { get; private set; } 
         public NombreApellidoTituloValueObject Titulo { get; private set; }
         public DescripcionValueObject Descripcion { get; private set; }
         public DateTime FechaPublicacion { get; private set; }

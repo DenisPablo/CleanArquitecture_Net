@@ -5,8 +5,8 @@ namespace BibliotecaDigital.Domain.Entities
 {
     public class Subscripcion
     {
-        public int Id { get; private set; }
-        public int PlanId { get; private set; }
+        public Guid Id { get; private set; }
+        public Guid PlanId { get; private set; }
         public Plan Plan { get; private set; }
         
         public Guid ApplicationUserId { get; private set; } 
@@ -15,7 +15,7 @@ namespace BibliotecaDigital.Domain.Entities
         public DateTime FechaFin { get; private set; }
         public Estados Estado { get; private set; }
         
-        public Subscripcion(int planId, Guid applicationUserId,Plan plan, DateTime fechaInicio, DateTime fechaFin)
+        public Subscripcion(Guid planId, Guid applicationUserId,Plan plan, DateTime fechaInicio, DateTime fechaFin)
         {
             var errores = new List<string>();
 
