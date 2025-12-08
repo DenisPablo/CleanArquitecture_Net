@@ -1,3 +1,5 @@
+using BibliotecaDigital.Application.Services;
+using BibliotecaDigital.Domain.Interfaces;
 using BibliotecaDigital.Infrastructure.Identity;
 using BibliotecaDigital.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Identity;
@@ -19,6 +21,12 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
+builder.Services.AddScoped<IAutorRepository, AutorRepository>();
+builder.Services.AddScoped<IPlanRepository, PlanRepository>();
+builder.Services.AddScoped<ILibroRepository, LibroRepository>();
+builder.Services.AddScoped<ISubscripcionRepository, SubscripcionRepository>();
+
+builder.Services.AddScoped<AutorService>();
 
 var app = builder.Build();
 

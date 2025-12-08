@@ -1,6 +1,6 @@
-namespace BibliotecaDigital.Application.commands;
+namespace BibliotecaDigital.Application.Commands;
 
-public record AutorCrearCommand(
+public record CrearAutorCommand(
      string Nombre,
      string Apellido,
      DateTime FechaNacimiento
