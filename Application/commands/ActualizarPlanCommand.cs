@@ -1,6 +1,6 @@
 using BibliotecaDigital.Domain.Entities;
 
-namespace BibliotecaDigital.Application.commands;
+namespace BibliotecaDigital.Application.Commands;
 
 public record ActualizarPlanCommand(
     Guid Id,

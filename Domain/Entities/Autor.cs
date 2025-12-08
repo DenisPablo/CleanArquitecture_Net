@@ -11,7 +11,6 @@ namespace BibliotecaDigital.Domain.Entities
         public DateTime FechaNacimiento { get; private set; }
         public ICollection<Libro> Libros { get; private set; }
         public Estados Estado { get; private set; }
-        public DateTime FechaAlta { get; private set; }
 
         public Autor(NombreApellidoTituloValueObject nombre, NombreApellidoTituloValueObject apellido, DateTime fechaNacimiento, ICollection<Libro> libros)
         {
@@ -32,12 +31,12 @@ namespace BibliotecaDigital.Domain.Entities
                 errores.Add("La fecha de nacimiento no puede ser futura.");
             }
 
-            if (libros == null || !libros.Any())
+            if (libros == null || libros.Count == 0)
             {
                 errores.Add("El autor debe tener al menos un libro asociado.");
             }
 
-            if (errores.Any())
+            if (errores.Count != 0)
             {
                 throw new DomainValidationException(errores);
             }
@@ -46,6 +45,14 @@ namespace BibliotecaDigital.Domain.Entities
             this.Apellido = apellido!;
             this.FechaNacimiento = fechaNacimiento;
             this.Libros = new List<Libro>(libros!);
+        }
+        
+        public void ActualizarAutor(NombreApellidoTituloValueObject nombre, NombreApellidoTituloValueObject apellido, DateTime fechaNacimiento)
+        {
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.FechaNacimiento = fechaNacimiento;
+            this.Libros = new List<Libro>();
         }
 
         //Entity Framework

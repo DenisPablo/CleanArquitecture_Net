@@ -35,15 +35,18 @@ public class PlanRepository(ApplicationDbContext context) : IPlanRepository
         }
     }
 
-    public async Task<IEnumerable<Plan>> ObtenerTodosLosPlanesAsync()
+    public async Task<IEnumerable<Plan>> ListarPlanesAsync(int pageNumber, int pageSize)
     {
         try
         {
-            return await _context.Planes.ToListAsync();
+            return await _context.Planes
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
         }
         catch (Exception ex)
         {
-            throw new PersistenceExeption("Error al obtener todos los planes", ex);
+            throw new PersistenceExeption("Error al obtener los planes", ex);
         }
     }
 

@@ -36,11 +36,11 @@ public class AutorRepository(ApplicationDbContext context) : IAutorRepository
         }
     }
 
-    public async Task<IEnumerable<Autor>> ObtenerTodosLosAutoresAsync()
+    public async Task<IEnumerable<Autor>> ListarAutoresAsync(int pageNumber, int pageSize)
     {
         try
         {
-            return await _context.Autores.ToListAsync();
+            return await _context.Autores.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
         }
         catch (Exception ex)
         {

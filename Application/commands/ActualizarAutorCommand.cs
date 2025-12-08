@@ -1,6 +1,6 @@
-namespace BibliotecaDigital.Application.commands;
+namespace BibliotecaDigital.Application.Commands;
 
-public record AutorActualizarCommand(
+public record ActualizarAutorCommand(
     Guid Id,
      string Nombre,
      string Apellido,

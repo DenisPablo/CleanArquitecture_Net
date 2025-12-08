@@ -35,15 +35,18 @@ public class SubscripcionRepository(ApplicationDbContext context) : ISubscripcio
         }
     }
 
-    public async Task<IEnumerable<Subscripcion>> ObtenerTodosLasSubscripcionesAsync()
+    public async Task<IEnumerable<Subscripcion>> ListarSubscripcionesAsync(int pageNumber, int pageSize)
     {
         try
         {
-            return await _context.Subscripciones.ToListAsync();
+            return await _context.Subscripciones
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
         }
         catch (Exception ex)
         {
-            throw new PersistenceExeption("Error al obtener todas las subscripciones", ex);
+            throw new PersistenceExeption("Error al obtener las subscripciones", ex);
         }
     }
 

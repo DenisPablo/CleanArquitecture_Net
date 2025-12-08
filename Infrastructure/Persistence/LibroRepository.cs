@@ -35,11 +35,14 @@ namespace BibliotecaDigital.Infrastructure.Persistence
            }
        }
 
-       public async Task<IEnumerable<Libro>> ObtenerTodosLosLibrosAsync()
+       public async Task<IEnumerable<Libro>> ListarLibrosAsync(int pageNumber, int pageSize)
        {
            try
            {
-               return await _context.Libros.ToListAsync();
+               return await _context.Libros
+                   .Skip((pageNumber - 1) * pageSize)
+                   .Take(pageSize)
+                   .ToListAsync();
            }
            catch (Exception ex)
            {
