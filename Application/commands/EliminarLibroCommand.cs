@@ -1,3 +1,3 @@
 namespace BibliotecaDigital.Application.commands;
 
-public record EliminarAutorCommand(Guid Id);
+public record EliminarLibroCommand(Guid Id);
