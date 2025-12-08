@@ -52,7 +52,6 @@ namespace BibliotecaDigital.Domain.Entities
             this.Nombre = nombre;
             this.Apellido = apellido;
             this.FechaNacimiento = fechaNacimiento;
-            this.Libros = new List<Libro>();
         }
 
         //Entity Framework

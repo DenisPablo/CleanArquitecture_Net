@@ -5,12 +5,15 @@ using BibliotecaDigital.Application.Commands;
 using BibliotecaDigital.Domain.Exceptions;
 using BibliotecaDigital.Application.Exeptions;
 using BibliotecaDigital.Application.Queries;
+using AutoMapper;
+using BibliotecaDigital.Application.Response;
 
 namespace BibliotecaDigital.Application.Services;
 
-public class AutorService(IAutorRepository autorRepository)
+public class AutorService(IAutorRepository autorRepository, IMapper mapper)
 {
     public readonly IAutorRepository _autorRepository = autorRepository;
+    public readonly IMapper _mapper = mapper;
 
     public async Task<Autor?> Handle(CrearAutorCommand command)
     {
@@ -24,7 +27,7 @@ public class AutorService(IAutorRepository autorRepository)
         return autorCreado;
     }
 
-    public async Task<Autor?> Handle(ActualizarAutorCommand command)
+    public async Task<AutorResponse?> Handle(ActualizarAutorCommand command)
     {
         var autor = await _autorRepository.ObtenerAutorPorIdAsync(command.Id);
         
@@ -38,36 +41,40 @@ public class AutorService(IAutorRepository autorRepository)
 
             var autorActualizado = await _autorRepository.ActualizarAutorAsync(autor);
 
-            return autorActualizado;
+            var autorResponse = _mapper.Map<AutorResponse>(autorActualizado);
+            return autorResponse;
         }
         
         return null;
     }
     
-    public async Task<Autor?> Handle(EliminarAutorCommand command)
+    public async Task<AutorResponse?> Handle(EliminarAutorCommand command)
     {
         var autor = await _autorRepository.ObtenerAutorPorIdAsync(command.Id);
         
         if (autor != null)
         {
-            await _autorRepository.EliminarAutorAsync(autor.Id);
-            return autor;
+
+            var autorEliminado = await _autorRepository.EliminarAutorAsync(autor.Id);
+            
+            var autorResponse = _mapper.Map<AutorResponse>(autorEliminado);
+            return autorResponse;
         }
         
         return null;
     }
 
-    public async Task<Autor?> Handle(BuscarAutorQuery query)
+    public async Task<AutorResponse?> Handle(BuscarAutorQuery query)
     {
         var autor = await _autorRepository.ObtenerAutorPorIdAsync(query.Id);
         
-        return autor;
+        return _mapper.Map<AutorResponse>(autor);
     }
 
-    public async Task<List<Autor>> Handle(ListarAutoresQuery query)
+    public async Task<List<AutorResponse>> Handle(ListarAutoresQuery query)
     {
         var autores = await _autorRepository.ListarAutoresAsync(query.PageNumber, query.PageSize);
         
-        return autores.ToList();
+        return _mapper.Map<List<AutorResponse>>(autores);
     }
 }
