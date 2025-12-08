@@ -1,20 +1,13 @@
-using System.ComponentModel.DataAnnotations;
 using BibliotecaDigital.Domain.Entities;
 
 namespace BibliotecaDigital.Application.DTOs;
 
 public record AutorDTO
 {
-    [Required]
-    public string Nombre { get; set; }
-    [Required]
-    public string Apellido { get; set; }
-    [Required]
-    public DateTime FechaNacimiento { get; set; }
-    [Required]
-    public ICollection<LibroDTO> Libros { get; set; }
-    [Required]
+    public required string Nombre { get; set; }
+    public required string Apellido { get; set; }
+    public required DateTime FechaNacimiento { get; set; }
+    public required ICollection<LibroDTO> Libros { get; set; }
     public Estados Estado { get; set; }
-    [Required]
     public DateTime FechaAlta { get; set; }
 }

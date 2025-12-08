@@ -2,7 +2,7 @@ namespace BibliotecaDigital.Application.commands;
 
 public record AutorCrearCommand()
 {
-    public string Nombre {get; set;}
-    public string Apellido {get; set;}
-    public DateTime FechaNacimiento {get; set;}
+    public required string Nombre {get; set;}
+    public required string Apellido {get; set;}
+    public required DateTime FechaNacimiento {get; set;}
 }
