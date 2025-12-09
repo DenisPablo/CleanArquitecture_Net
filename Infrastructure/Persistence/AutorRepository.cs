@@ -61,23 +61,4 @@ public class AutorRepository(ApplicationDbContext context) : IAutorRepository
             throw new PersistenceExeption("Error al actualizar autor", ex);
         }
     }
-
-    public async Task<Autor?> EliminarAutorAsync(Guid id)
-    {
-        try{
-            var autor = await _context.Autores.FindAsync(id);
-            if (autor != null)
-            {
-                autor.Desactivar();
-                _context.Autores.Update(autor);
-                await _context.SaveChangesAsync();
-                return autor;
-            }
-            return await Task.FromResult<Autor?>(null);
-        }
-        catch (Exception ex)
-        {
-            throw new PersistenceExeption("Error al eliminar autor", ex);
-        }
-    }
 }

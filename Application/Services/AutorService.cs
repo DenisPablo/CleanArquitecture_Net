@@ -42,10 +42,11 @@ public class AutorService(IAutorRepository autorRepository, IMapper mapper)
             var autorActualizado = await _autorRepository.ActualizarAutorAsync(autor);
 
             var autorResponse = _mapper.Map<AutorResponse>(autorActualizado);
+            
             return autorResponse;
         }
         
-        return null;
+            return null;
     }
     
     public async Task<AutorResponse?> Handle(EliminarAutorCommand command)
@@ -54,10 +55,10 @@ public class AutorService(IAutorRepository autorRepository, IMapper mapper)
         
         if (autor != null)
         {
-
-            var autorEliminado = await _autorRepository.EliminarAutorAsync(autor.Id);
+            autor.Desactivar();
+            autor = await _autorRepository.ActualizarAutorAsync(autor);
             
-            var autorResponse = _mapper.Map<AutorResponse>(autorEliminado);
+            var autorResponse = _mapper.Map<AutorResponse>(autor);            
             return autorResponse;
         }
         
