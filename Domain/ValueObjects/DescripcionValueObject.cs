@@ -24,6 +24,9 @@ namespace BibliotecaDigital.Domain.ValueObjects
         }
         
         //Entity Framework
-        private DescripcionValueObject() { }
+        private DescripcionValueObject() 
+        { 
+            Valor = null!;
+        }
     }
 }

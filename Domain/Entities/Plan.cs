@@ -43,7 +43,12 @@ namespace BibliotecaDigital.Domain.Entities
             this.Subscripciones = [.. subscripciones!];
         }
         //Entity Framework
-        private Plan() { }
+        private Plan() 
+        { 
+            Nombre = null!;
+            Descripcion = null!;
+            Subscripciones = new List<Subscripcion>();
+        }
 
         public void Desactivar()
         {

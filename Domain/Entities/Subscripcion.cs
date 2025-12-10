@@ -42,7 +42,10 @@ namespace BibliotecaDigital.Domain.Entities
         }
 
         //Entity Framework
-        private Subscripcion() { }
+        private Subscripcion() 
+        { 
+            Plan = null!;
+        }
 
         public void Desactivar()
         {

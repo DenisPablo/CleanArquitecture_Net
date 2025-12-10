@@ -7,6 +7,5 @@ public record AutorResponse(
     string Apellido,
     DateTime FechaNacimiento,
     ICollection<LibroResponse> Libros,
-    Estados Estado,
-    DateTime FechaAlta
+    Estados Estado
 );

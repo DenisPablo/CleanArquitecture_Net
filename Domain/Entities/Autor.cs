@@ -31,11 +31,6 @@ namespace BibliotecaDigital.Domain.Entities
                 errores.Add("La fecha de nacimiento no puede ser futura.");
             }
 
-            if (libros == null || libros.Count == 0)
-            {
-                errores.Add("El autor debe tener al menos un libro asociado.");
-            }
-
             if (errores.Count != 0)
             {
                 throw new DomainValidationException(errores);
@@ -55,7 +50,12 @@ namespace BibliotecaDigital.Domain.Entities
         }
 
         //Entity Framework
-        private Autor() { }
+        private Autor() 
+        {
+            Nombre = null!;
+            Apellido = null!;
+            Libros = new List<Libro>(); 
+        }
 
         public void Desactivar()
         {

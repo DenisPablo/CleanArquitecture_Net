@@ -27,8 +27,15 @@ namespace BibliotecaDigital.Infrastructure.Persistence
             builder.Entity<Libro>().OwnsOne(l => l.Descripcion);
             
             // 2. Configuración para la Entidad Autor
-            builder.Entity<Autor>().OwnsOne(a => a.Nombre);
-            builder.Entity<Autor>().OwnsOne(a => a.Apellido);
+            builder.Entity<Autor>().OwnsOne(a => a.Nombre, n => 
+            {
+                n.Property(p => p.Valor).HasColumnName("Nombre");
+            });
+            
+            builder.Entity<Autor>().OwnsOne(a => a.Apellido, a => 
+            {
+                a.Property(p => p.Valor).HasColumnName("Apellido");
+            });
 
             // 3. Configuración para la Entidad Plan
             builder.Entity<Plan>().OwnsOne(p => p.Nombre);

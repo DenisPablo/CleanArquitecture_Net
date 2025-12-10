@@ -74,7 +74,10 @@ public class AutorService(IAutorRepository autorRepository, IMapper mapper)
 
     public async Task<List<AutorResponse>> Handle(ListarAutoresQuery query)
     {
-        var autores = await _autorRepository.ListarAutoresAsync(query.PageNumber, query.PageSize);
+        var pageNumber = query.PageNumber < 1 ? 1 : query.PageNumber;
+        var pageSize = query.PageSize < 1 ? 10 : query.PageSize;
+
+        var autores = await _autorRepository.ListarAutoresAsync(pageNumber, pageSize);
         
         return _mapper.Map<List<AutorResponse>>(autores);
     }

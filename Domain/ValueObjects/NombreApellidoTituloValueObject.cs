@@ -25,6 +25,9 @@ namespace BibliotecaDigital.Domain.ValueObjects
         }
 
         //Entity Framework
-        private NombreApellidoTituloValueObject() { }
+        private NombreApellidoTituloValueObject() 
+        { 
+            Valor = null!;
+        }
     }
 }
