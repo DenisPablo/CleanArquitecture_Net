@@ -9,5 +9,4 @@ public interface IAutorRepository
    Task<IEnumerable<Autor>>ListarAutoresAsync(int pageNumber, int pageSize);
 
    Task<Autor?>ActualizarAutorAsync(Autor autor);
-   Task<Autor?> EliminarAutorAsync(Guid id);   
 }
