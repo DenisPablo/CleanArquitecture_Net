@@ -8,5 +8,5 @@ public interface ILibroRepository
     Task<Libro?> ObtenerLibroPorIdAsync(Guid id);
     Task<IEnumerable<Libro>> ListarLibrosAsync(int pageNumber, int pageSize);
     Task<Libro?> ActualizarLibroAsync(Libro libro);
-    Task EliminarLibroAsync(Guid id);   
+
 }

@@ -64,22 +64,6 @@ namespace BibliotecaDigital.Infrastructure.Persistence
            }
        }
 
-       public async Task EliminarLibroAsync(Guid id)
-       {
-           try
-           {
-               var libro = await ObtenerLibroPorIdAsync(id);
-               if (libro != null)
-               {
-                    libro.Desactivar();
-                   _context.Update(libro);
-                   await _context.SaveChangesAsync();
-               }
-           }
-           catch (Exception ex)
-           {
-               throw new PersistenceExeption("Error al eliminar el libro", ex);
-           }
-       }
+
     }
 }

@@ -15,6 +15,25 @@ namespace BibliotecaDigital.Domain.Entities
 
         public Plan(NombreApellidoTituloValueObject nombre, DescripcionValueObject descripcion, decimal precio, ICollection<Subscripcion> subscripciones)
         {
+            Validar(nombre, descripcion, precio);
+
+            this.Nombre = nombre!;
+            this.Descripcion = descripcion!;
+            this.Precio = precio;
+            this.Subscripciones = [.. subscripciones!];
+        }
+
+        public void ActualizarPlan(NombreApellidoTituloValueObject nombre, DescripcionValueObject descripcion, decimal precio)
+        {
+            Validar(nombre, descripcion, precio);
+
+            this.Nombre = nombre;
+            this.Descripcion = descripcion;
+            this.Precio = precio;
+        }
+
+        private void Validar(NombreApellidoTituloValueObject nombre, DescripcionValueObject descripcion, decimal precio)
+        {
             var errores = new List<string>();
 
             if (nombre == null)
@@ -36,11 +55,6 @@ namespace BibliotecaDigital.Domain.Entities
             {
                 throw new DomainValidationException(errores);
             }
-
-            this.Nombre = nombre!;
-            this.Descripcion = descripcion!;
-            this.Precio = precio;
-            this.Subscripciones = [.. subscripciones!];
         }
         //Entity Framework
         private Plan() 

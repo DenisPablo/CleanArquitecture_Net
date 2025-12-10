@@ -8,5 +8,5 @@ public interface IPlanRepository
     Task<Plan?> ObtenerPlanPorIdAsync(Guid id);
     Task<IEnumerable<Plan>> ListarPlanesAsync(int pageNumber, int pageSize);
     Task<Plan?> ActualizarPlanAsync(Plan plan);
-    Task<Plan?> EliminarPlanAsync(Guid id);   
+
 }

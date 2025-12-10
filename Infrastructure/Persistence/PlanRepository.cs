@@ -64,22 +64,5 @@ public class PlanRepository(ApplicationDbContext context) : IPlanRepository
         }
     }
 
-    public async Task<Plan?> EliminarPlanAsync(Guid id)
-    {
-        try
-        {
-            var plan = await ObtenerPlanPorIdAsync(id);
-            if (plan != null)
-            {
-                plan.Desactivar();
-                _context.Update(plan);
-                await _context.SaveChangesAsync();
-            }
-            return plan;
-        }
-        catch (Exception ex)
-        {
-            throw new PersistenceExeption("Error al eliminar plan", ex);
-        }
-   }
+
 }

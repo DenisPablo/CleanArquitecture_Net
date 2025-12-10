@@ -64,21 +64,5 @@ public class SubscripcionRepository(ApplicationDbContext context) : ISubscripcio
         }
     }
 
-    public async Task EliminarSubscripcionAsync(Guid id)
-    {
-        try
-        {
-            var subscripcion = await ObtenerSubscripcionPorIdAsync(id);
-            if (subscripcion != null)
-            {
-                subscripcion.Desactivar();
-                _context.Update(subscripcion);
-                await _context.SaveChangesAsync();
-            }
-        }
-        catch (Exception ex)
-        {
-            throw new PersistenceExeption("Error al eliminar subscripción", ex);
-        }
-    }
+
 }

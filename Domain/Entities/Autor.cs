@@ -14,6 +14,25 @@ namespace BibliotecaDigital.Domain.Entities
 
         public Autor(NombreApellidoTituloValueObject nombre, NombreApellidoTituloValueObject apellido, DateTime fechaNacimiento, ICollection<Libro> libros)
         {
+            Validar(nombre, apellido, fechaNacimiento);
+
+            this.Nombre = nombre!;
+            this.Apellido = apellido!;
+            this.FechaNacimiento = fechaNacimiento;
+            this.Libros = new List<Libro>(libros!);
+        }
+        
+        public void ActualizarAutor(NombreApellidoTituloValueObject nombre, NombreApellidoTituloValueObject apellido, DateTime fechaNacimiento)
+        {
+            Validar(nombre, apellido, fechaNacimiento);
+
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.FechaNacimiento = fechaNacimiento;
+        }
+
+        private void Validar(NombreApellidoTituloValueObject nombre, NombreApellidoTituloValueObject apellido, DateTime fechaNacimiento)
+        {
             var errores = new List<string>();
 
             if (nombre == null)
@@ -35,18 +54,6 @@ namespace BibliotecaDigital.Domain.Entities
             {
                 throw new DomainValidationException(errores);
             }
-
-            this.Nombre = nombre!;
-            this.Apellido = apellido!;
-            this.FechaNacimiento = fechaNacimiento;
-            this.Libros = new List<Libro>(libros!);
-        }
-        
-        public void ActualizarAutor(NombreApellidoTituloValueObject nombre, NombreApellidoTituloValueObject apellido, DateTime fechaNacimiento)
-        {
-            this.Nombre = nombre;
-            this.Apellido = apellido;
-            this.FechaNacimiento = fechaNacimiento;
         }
 
         //Entity Framework

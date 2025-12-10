@@ -17,6 +17,28 @@ namespace BibliotecaDigital.Domain.Entities
         
         public Subscripcion(Guid planId, Guid applicationUserId,Plan plan, DateTime fechaInicio, DateTime fechaFin)
         {
+            Validar(planId, applicationUserId, plan, fechaInicio, fechaFin);
+
+            this.Plan = plan!;
+            this.PlanId = planId;
+            this.ApplicationUserId = applicationUserId;
+            this.FechaInicio = fechaInicio;
+            this.FechaFin = fechaFin;
+        }
+
+        public void ActualizarSubscripcion(Guid planId, Guid applicationUserId, Plan plan, DateTime fechaInicio, DateTime fechaFin)
+        {
+            Validar(planId, applicationUserId, plan, fechaInicio, fechaFin);
+
+            this.Plan = plan;
+            this.PlanId = planId;
+            this.ApplicationUserId = applicationUserId;
+            this.FechaInicio = fechaInicio;
+            this.FechaFin = fechaFin;
+        }
+
+        private void Validar(Guid planId, Guid applicationUserId, Plan plan, DateTime fechaInicio, DateTime fechaFin)
+        {
             var errores = new List<string>();
 
             if (fechaFin <= fechaInicio)
@@ -33,12 +55,6 @@ namespace BibliotecaDigital.Domain.Entities
             {
                 throw new DomainValidationException(errores);
             }
-
-            this.Plan = plan!;
-            this.PlanId = planId;
-            this.ApplicationUserId = applicationUserId;
-            this.FechaInicio = fechaInicio;
-            this.FechaFin = fechaFin;
         }
 
         //Entity Framework
