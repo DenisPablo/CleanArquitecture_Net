@@ -13,5 +13,18 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Apellido, opt => opt.MapFrom(src => src.Apellido.Valor))
             .ForMember(dest => dest.FechaNacimiento, opt => opt.MapFrom(src => src.FechaNacimiento))
         ;
+
+        CreateMap<Libro, LibroResponse>()
+            .ForMember(dest => dest.Titulo, opt => opt.MapFrom(src => src.Titulo.Valor))
+            .ForMember(dest => dest.Descripcion, opt => opt.MapFrom(src => src.Descripcion.Valor))
+        ;
+
+        CreateMap<Plan, PlanResponse>()
+            .ForMember(dest => dest.Nombre, opt => opt.MapFrom(src => src.Nombre.Valor))
+            .ForMember(dest => dest.Descripcion, opt => opt.MapFrom(src => src.Descripcion.Valor))
+        ;
+
+        CreateMap<Subscripcion, SubscripcionResponse>()
+        ;
     }
 }

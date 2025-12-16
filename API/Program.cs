@@ -27,6 +27,9 @@ builder.Services.AddScoped<ILibroRepository, LibroRepository>();
 builder.Services.AddScoped<ISubscripcionRepository, SubscripcionRepository>();
 
 builder.Services.AddScoped<AutorService>();
+builder.Services.AddScoped<LibroService>();
+builder.Services.AddScoped<PlanService>();
+builder.Services.AddScoped<SubscripcionService>();
 builder.Services.AddAutoMapper(typeof(BibliotecaDigital.Application.Mapping.MappingProfile));
 
 builder.Services.AddControllers();
